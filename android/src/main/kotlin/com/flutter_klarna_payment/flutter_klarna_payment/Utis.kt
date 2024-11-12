@@ -1,6 +1,6 @@
 package com.flutter_klarna_payment.flutter_klarna_payment
 
-data class KlarnaPayRequest(val clientToken: String, val returnUrl: String)
+data class KlarnaPayRequest(val clientToken: String, val returnUrl: String, val loadData: String)
 
 public fun convertToKlarnaPayRequest(map: Map<String?, Any?>?): KlarnaPayRequest? {
     if (map == null) {
@@ -9,9 +9,10 @@ public fun convertToKlarnaPayRequest(map: Map<String?, Any?>?): KlarnaPayRequest
 
     val clientToken = map["clientToken"] as? String
     val returnUrl = map["returnUrl"] as? String
+    val loadData = map["loadData"] as? String
 
     if (clientToken != null && returnUrl != null) {
-        return KlarnaPayRequest(clientToken, returnUrl)
+        return KlarnaPayRequest(clientToken, returnUrl,loadData)
     }
 
     return null // Return null if either clientToken or returnUrl is missing or not of the expected type.

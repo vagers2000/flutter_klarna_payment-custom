@@ -10,7 +10,10 @@ class PaymentViewFactory(private val messenger: BinaryMessenger,private  val pay
 
     override fun create(context: Context, viewId: Int, args: Any?): PlatformView {
         val creationParams = args as Map<String?, Any?>?
-        return PaymentView(context,messenger, viewId, creationParams,paymentViewCallback)
+        // Create the PaymentViewCallback with jsonParam
+        val klarnaRequest = convertToKlarnaPayRequest(creationParams)
+            ?: throw NullPointerException("Value is null")
+        val callback = PaymentViewCallback(streamHandler, klarnaRequest.loadData)
+        return PaymentView(context,messenger, viewId, creationParams,callback)
     }
-
 }

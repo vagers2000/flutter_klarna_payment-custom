@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_klarna_payment/flutter_klarna_payment.dart';
 
 void main() {
@@ -41,9 +40,10 @@ class _MyAppState extends State<MyApp> {
                 child: KlarnaPaymentView(
                   controller: controller,
                   request: KlarnaPaymentRequest(
-                    clientToken: token,
-                    returnUrl: 'https://com.flutter_klarna_payment.flutter_klarna_payment_example',
-                  ),
+                      clientToken: token,
+                      returnUrl:
+                          'https://com.flutter_klarna_payment.flutter_klarna_payment_example',
+                      loadData: ""),
                 ),
               ),
               ElevatedButton(
