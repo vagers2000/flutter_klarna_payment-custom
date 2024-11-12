@@ -29,7 +29,7 @@ class PaymentViewCallback(private val streamHandler: PaymentStreamHandler) : Kla
     override fun onInitialized(view: KlarnaPaymentView) {
         streamHandler.sendMessage(KlarnaPaymentState.INITIALIZED.toCamelCase(),null)
         streamHandler.setPaymentView(view)
-        view.load("{\"shipping_address\": {\"given_name\": \"US RC MP\", \"family_name\": \"Test\", \"email\": \"icentris.qa6+1261@gmail.com\", \"street_address\": \"707 W 700 S\", \"postal_code\": \"84087-1454\", \"city\": \"WOODS CROSS\", \"country\": \"GB\"}, \"customer\": {\"date_of_birth\": \"1984-01-01\"}}");
+        view.load("{\"shipping_address\": {\"given_name\": \"US RC MP\", \"family_name\": \"Test\", \"email\": \"icentris.qa6+1261@gmail.com\", \"street_address\": \"707 W 700 S\", \"postal_code\": \"84087-1454\", \"city\": \"WOODS CROSS\", \"country\": \"US\"}, \"customer\": {\"date_of_birth\": \"1984-01-01\"}}");
     }
 
     override fun onLoadPaymentReview(view: KlarnaPaymentView, showForm: Boolean) {
